@@ -1,349 +1,922 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Md. Asiful Haque Tomal | Geographer &amp; Environmental Researcher</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md. Asiful Haque Tomal — Portfolio</title>
 <meta name="description" content="Md. Asiful Haque Tomal, geographer and environmental researcher at Pabna University of Science and Technology, Bangladesh. Research on riverbank erosion, flood vulnerability and community resilience.">
-<meta property="og:title" content="Md. Asiful Haque Tomal">
-<meta property="og:description" content="Geographer and environmental researcher working on riverbank erosion, flood vulnerability and community resilience in Bangladesh.">
-<meta property="og:image" content="photo.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<meta property="og:title" content="Md. Asiful Haque Tomal — Geographer &amp; Researcher">
+<meta property="og:image" content="profile.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #f7f6f2;
-  --surface: #ffffff;
-  --text: #1f2328;
-  --muted: #5b6168;
-  --line: #e3e1da;
-  --accent: #1f3864;
-  --accent-2: #2e6b5e;
-  --chip: #eef1f6;
+/* ── RESET & ROOT ─────────────────────────────────────────────────── */
+:root{
+  --navy:#0f2033; --navy2:#1b3a5c; --teal:#1d8a9c; --teal2:#23afc4;
+  --gold:#c9921a; --gold2:#e5ac3a; --cream:#f7f3ee;
+  --body:#374151; --muted:#6b7280; --light:#f0f4f8;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #12161c;
-    --surface: #1a2028;
-    --text: #e6e8eb;
-    --muted: #a3aab3;
-    --line: #2b333d;
-    --accent: #9bb8e6;
-    --accent-2: #7cc7b3;
-    --chip: #222b36;
-  }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);overflow-x:hidden;}
+
+/* ── NAV ──────────────────────────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 3rem;height:62px;
+  background:rgba(15,32,51,0.94);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(29,138,156,0.15);
+  transition:box-shadow 0.3s;
 }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font: 16px/1.65 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+nav.scrolled{box-shadow:0 4px 30px rgba(0,0,0,0.3);}
+.nav-logo{
+  font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;
+  color:var(--gold2);letter-spacing:0.02em;cursor:pointer;user-select:none;
 }
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
-.wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
-
-/* Nav */
-nav {
-  position: sticky; top: 0; z-index: 10;
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--line);
+.nav-links{display:flex;gap:0;align-items:center;}
+.nav-links button{
+  background:none;border:none;cursor:pointer;
+  font-family:'DM Sans',sans-serif;font-size:0.77rem;font-weight:500;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:rgba(247,243,238,0.52);
+  padding:0 1rem;height:62px;
+  border-bottom:2px solid transparent;
+  transition:all 0.2s;
 }
-nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 16px; }
-nav .brand { font-family: "Source Serif 4", Georgia, serif; font-weight: 700; color: var(--text); font-size: 18px; white-space: nowrap; }
-nav ul { list-style: none; display: flex; gap: 18px; margin: 0; padding: 0; overflow-x: auto; scrollbar-width: none; }
-nav ul::-webkit-scrollbar { display: none; }
-nav a.link { color: var(--muted); font-size: 14px; font-weight: 500; white-space: nowrap; }
-nav a.link:hover { color: var(--accent); text-decoration: none; }
+.nav-links button:hover{color:var(--teal2);border-bottom-color:rgba(35,175,196,0.4);}
+.nav-links button.active{color:var(--cream);border-bottom-color:var(--gold2);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--cream);transition:all 0.3s;border-radius:2px;}
 
-/* Hero */
-header.hero { padding: 56px 0 40px; }
-.hero .wrap { display: grid; grid-template-columns: 180px 1fr; gap: 36px; align-items: center; }
-.hero img {
-  width: 180px; height: 225px; object-fit: cover; border-radius: 12px;
-  border: 1px solid var(--line); background: var(--surface);
+/* ── PAGE SYSTEM ─────────────────────────────────────────────────── */
+.page{display:none;min-height:100vh;padding-top:62px;animation:pageIn 0.4s ease both;}
+.page.active{display:block;}
+@keyframes pageIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── SHARED COMPONENTS ───────────────────────────────────────────── */
+.page-banner{
+  padding:4.5rem 3rem 3.5rem;
+  background:linear-gradient(135deg,#0a1824 0%,#0f2033 60%,#0a1a2a 100%);
+  border-bottom:1px solid rgba(29,138,156,0.13);
+  position:relative;overflow:hidden;
 }
-.hero h1 { font-family: "Source Serif 4", Georgia, serif; font-size: 40px; line-height: 1.15; margin: 0 0 8px; color: var(--accent); }
-.hero .role { font-size: 18px; font-weight: 600; color: var(--accent-2); margin: 0 0 14px; }
-.hero p.lead { margin: 0 0 18px; color: var(--muted); max-width: 620px; }
-.links { display: flex; flex-wrap: wrap; gap: 10px; }
-.btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 500;
-  border: 1px solid var(--line); background: var(--surface); color: var(--text);
+.page-banner::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 55% 80% at 85% 50%,rgba(29,138,156,0.12) 0%,transparent 70%);
 }
-.btn:hover { border-color: var(--accent); text-decoration: none; color: var(--accent); }
-.btn svg { width: 16px; height: 16px; fill: currentColor; }
-
-/* Stats */
-.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 8px 0 0; }
-.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
-.stat b { display: block; font-family: "Source Serif 4", Georgia, serif; font-size: 28px; color: var(--accent); line-height: 1.1; }
-.stat span { font-size: 13px; color: var(--muted); }
-
-/* Sections */
-section { padding: 40px 0; border-top: 1px solid var(--line); scroll-margin-top: 56px; }
-.grid2 .item { grid-template-columns: 76px 1fr; gap: 14px; }
-.grid2 .item h3 { font-size: 15.5px; }
-section h2 {
-  font-family: "Source Serif 4", Georgia, serif; font-size: 26px; margin: 0 0 20px; color: var(--text);
+.page-banner::after{
+  content:'';position:absolute;inset:0;opacity:0.03;
+  background-image:linear-gradient(rgba(29,138,156,1) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(29,138,156,1) 1px,transparent 1px);
+  background-size:50px 50px;
 }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-.chip { background: var(--chip); color: var(--text); border-radius: 999px; padding: 4px 12px; font-size: 13px; }
-
-.item { display: grid; grid-template-columns: 150px 1fr; gap: 20px; padding: 14px 0; }
-.item + .item { border-top: 1px dashed var(--line); }
-.item .when { color: var(--accent-2); font-weight: 600; font-size: 14px; padding-top: 2px; }
-.item h3 { margin: 0; font-size: 17px; }
-.item .where { color: var(--muted); font-style: italic; margin: 2px 0 6px; }
-.item p { margin: 6px 0 0; }
-.item ul { margin: 8px 0 0; padding-left: 18px; }
-.item li { margin: 2px 0; }
-
-.pub { padding: 14px 0; }
-.pub + .pub { border-top: 1px dashed var(--line); }
-.pub .status {
-  display: inline-block; margin-top: 6px; font-size: 12px; font-weight: 600;
-  padding: 2px 10px; border-radius: 999px; background: var(--chip); color: var(--accent-2);
+.eyebrow{
+  font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.22em;
+  text-transform:uppercase;color:var(--teal2);margin-bottom:0.7rem;
+  display:flex;align-items:center;gap:0.7rem;position:relative;z-index:1;
 }
-.note { font-size: 13px; color: var(--muted); margin-top: 10px; }
-
-.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
-.card h3 { margin: 0 0 6px; font-size: 16px; }
-.card p { margin: 0; color: var(--muted); font-size: 15px; }
-
-.skills dt { font-weight: 600; color: var(--accent); }
-.skills dd { margin: 2px 0 12px; }
-
-footer { padding: 30px 0 40px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
-
-@media (max-width: 720px) {
-  .hero .wrap { grid-template-columns: 1fr; text-align: left; }
-  .hero img { width: 140px; height: 175px; }
-  .hero h1 { font-size: 32px; }
-  .stats { grid-template-columns: repeat(2, 1fr); }
-  .item { grid-template-columns: 1fr; gap: 4px; }
-  .grid2 { grid-template-columns: 1fr; }
-  nav .brand { display: none; }
+.eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--teal2);}
+.page-banner h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,4vw,3.2rem);font-weight:700;
+  color:var(--cream);line-height:1.12;position:relative;z-index:1;
 }
+.page-banner>p{
+  font-size:0.93rem;color:rgba(247,243,238,0.48);margin-top:0.7rem;
+  max-width:540px;line-height:1.75;position:relative;z-index:1;
+}
+
+.section{padding:4rem 3rem;max-width:1100px;margin:0 auto;}
+.section-label{
+  font-family:'DM Mono',monospace;font-size:0.67rem;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--teal2);margin-bottom:0.5rem;
+  display:flex;align-items:center;gap:0.7rem;
+}
+.section-label::after{content:'';flex:0 0 26px;height:1px;background:var(--teal2);}
+h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.5rem,2.5vw,2.1rem);font-weight:600;
+  color:var(--cream);margin-bottom:2.2rem;line-height:1.2;
+}
+
+.card{
+  background:rgba(255,255,255,0.03);border:1px solid rgba(247,243,238,0.08);
+  border-radius:3px;padding:2rem;position:relative;overflow:hidden;transition:all 0.3s;
+}
+.card:hover{border-color:rgba(29,138,156,0.35);transform:translateY(-2px);}
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--teal),var(--gold));
+  transform:scaleX(0);transform-origin:left;transition:transform 0.3s;
+}
+.card:hover::before{transform:scaleX(1);}
+.tag{
+  display:inline-block;padding:0.28rem 0.65rem;border-radius:2px;
+  background:rgba(29,138,156,0.12);border:1px solid rgba(29,138,156,0.25);
+  font-size:0.74rem;color:var(--teal2);margin:0.2rem;
+}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:2rem;}
+.timeline::before{
+  content:'';position:absolute;left:0;top:8px;bottom:8px;
+  width:1px;background:linear-gradient(to bottom,var(--teal),transparent);
+}
+.tl-item{position:relative;padding:0 0 3rem 2.5rem;}
+.tl-dot{
+  position:absolute;left:-2rem;top:6px;
+  width:10px;height:10px;border-radius:50%;
+  background:var(--teal);border:2px solid var(--navy);
+  box-shadow:0 0 0 3px rgba(29,138,156,0.25);
+}
+.tl-meta{font-family:'DM Mono',monospace;font-size:0.67rem;letter-spacing:0.1em;color:var(--teal2);margin-bottom:0.45rem;}
+.tl-title{font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:600;color:var(--cream);margin-bottom:0.2rem;}
+.tl-org{font-size:0.84rem;color:var(--gold2);margin-bottom:0.7rem;}
+.tl-project{
+  font-size:0.83rem;font-style:italic;color:rgba(247,243,238,0.5);
+  margin-bottom:0.8rem;border-left:2px solid var(--teal);padding-left:0.8rem;
+}
+.tl-bullets{list-style:none;}
+.tl-bullets li{
+  font-size:0.86rem;color:rgba(247,243,238,0.65);
+  padding:0.28rem 0 0.28rem 1.2rem;position:relative;line-height:1.6;
+}
+.tl-bullets li::before{content:'▸';position:absolute;left:0;color:var(--teal);font-size:0.68rem;top:0.38rem;}
+
+/* FOOTER */
+footer{
+  text-align:center;padding:1.3rem 2rem;
+  border-top:1px solid rgba(247,243,238,0.06);
+  font-size:0.7rem;color:rgba(247,243,238,0.2);
+  font-family:'DM Mono',monospace;letter-spacing:0.08em;
+}
+
+/* FADE-UP */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+.fu{opacity:0;animation:fadeUp 0.55s ease both;}
+.fu:nth-child(1){animation-delay:0.05s;}.fu:nth-child(2){animation-delay:0.14s;}
+.fu:nth-child(3){animation-delay:0.23s;}.fu:nth-child(4){animation-delay:0.32s;}
+.fu:nth-child(5){animation-delay:0.41s;}.fu:nth-child(6){animation-delay:0.5s;}
+
+/* MOBILE */
+@media(max-width:860px){
+  nav{padding:0 1.2rem;}
+  .nav-links{display:none;position:fixed;top:62px;left:0;right:0;
+    flex-direction:column;background:rgba(10,24,36,0.98);
+    backdrop-filter:blur(20px);padding:1rem 0 2rem;gap:0;border-bottom:1px solid rgba(29,138,156,0.15);}
+  .nav-links.open{display:flex;}
+  .nav-links button{height:auto;padding:0.9rem 2rem;width:100%;text-align:left;border-bottom:none;border-left:3px solid transparent;}
+  .nav-links button.active{border-left-color:var(--gold2);background:rgba(255,255,255,0.03);}
+  .hamburger{display:flex;}
+  .section{padding:3rem 1.4rem;}
+  .page-banner{padding:3rem 1.4rem 2.5rem;}
+}
+
+/* ═══════════════════════════════════════════════
+   PAGE: HOME
+════════════════════════════════════════════════ */
+#page-home{background:var(--navy);}
+.hero{
+  min-height:calc(100vh - 62px);
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;padding:3rem 3rem;gap:4rem;
+  position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 65% 75% at 75% 50%,rgba(29,138,156,0.13) 0%,transparent 70%),
+    radial-gradient(ellipse 45% 45% at 18% 82%,rgba(201,146,26,0.08) 0%,transparent 60%),
+    linear-gradient(160deg,#0f2033 0%,#0a1a2a 100%);
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:0;opacity:0.035;
+  background-image:linear-gradient(rgba(29,138,156,1) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(29,138,156,1) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+.hero-left{position:relative;z-index:1;}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:0.65rem;
+  font-family:'DM Mono',monospace;font-size:0.7rem;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--teal2);margin-bottom:1.4rem;
+}
+.hero-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--teal2);}
+.hero-left h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.6rem,4.5vw,4.2rem);font-weight:700;
+  line-height:1.07;color:var(--cream);margin-bottom:0.5rem;
+}
+.hero-left h1 em{font-style:italic;color:var(--gold2);}
+.hero-sub{font-size:1rem;color:rgba(247,243,238,0.42);font-weight:300;margin-bottom:1.8rem;letter-spacing:0.01em;}
+.hero-desc{font-size:0.95rem;line-height:1.88;color:rgba(247,243,238,0.68);max-width:480px;margin-bottom:2.2rem;}
+.cta-row{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-p{
+  padding:0.72rem 1.8rem;border-radius:2px;background:var(--teal);color:var(--cream);
+  font-size:0.79rem;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;
+  border:1px solid var(--teal);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.22s;
+}
+.btn-p:hover{background:var(--teal2);border-color:var(--teal2);}
+.btn-o{
+  padding:0.72rem 1.8rem;border-radius:2px;background:transparent;color:var(--cream);
+  font-size:0.79rem;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;
+  border:1px solid rgba(247,243,238,0.22);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.22s;
+}
+.btn-o:hover{border-color:var(--gold2);color:var(--gold2);}
+.stats{
+  display:flex;gap:0;margin-top:3rem;
+  border-top:1px solid rgba(247,243,238,0.08);padding-top:2rem;
+}
+.stat{flex:1;}
+.stat+.stat{border-left:1px solid rgba(247,243,238,0.08);padding-left:2rem;}
+.stat-n{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:var(--gold2);line-height:1;}
+.stat-l{font-size:0.7rem;color:rgba(247,243,238,0.38);letter-spacing:0.12em;text-transform:uppercase;margin-top:0.3rem;}
+.hero-right{position:relative;z-index:1;display:flex;justify-content:center;}
+.photo-frame{position:relative;width:320px;height:400px;}
+.photo-frame::before{
+  content:'';position:absolute;top:-14px;right:-14px;
+  width:100%;height:100%;border:2px solid var(--gold);border-radius:2px;z-index:0;
+}
+.photo-frame::after{
+  content:'';position:absolute;bottom:-14px;left:-14px;
+  width:55%;height:55%;border:2px solid var(--teal);border-radius:2px;z-index:0;
+}
+.photo-frame img{
+  width:100%;height:100%;object-fit:cover;object-position:center top;
+  border-radius:2px;position:relative;z-index:1;filter:contrast(1.02) brightness(0.95);
+}
+.photo-badge{
+  position:absolute;bottom:-26px;left:-18px;z-index:2;
+  background:var(--navy2);border:1px solid var(--teal);
+  padding:0.65rem 1rem;border-radius:2px;
+  font-family:'DM Mono',monospace;font-size:0.67rem;letter-spacing:0.1em;color:var(--teal2);
+  white-space:nowrap;
+}
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;text-align:center;padding:2.5rem 1.4rem;gap:2.5rem;min-height:auto;padding-bottom:4rem;}
+  .hero-right{order:-1;}
+  .photo-frame{width:200px;height:260px;margin:0 auto;}
+  .cta-row{justify-content:center;}
+  .stats{justify-content:center;}
+}
+
+/* ═══════════════════════════════════════════════
+   PAGE: ABOUT
+════════════════════════════════════════════════ */
+#page-about{background:#0a1a2a;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.about-text{font-size:0.95rem;line-height:1.9;color:rgba(247,243,238,0.7);}
+.about-text p+p{margin-top:1.2rem;}
+.edu-item{padding:1.1rem 0;border-bottom:1px solid rgba(247,243,238,0.07);}
+.edu-item:last-child{border-bottom:none;}
+.edu-degree{font-family:'Playfair Display',serif;font-size:0.98rem;font-weight:600;color:var(--cream);}
+.edu-inst{font-size:0.83rem;color:rgba(247,243,238,0.5);margin:0.18rem 0;}
+.edu-meta{display:flex;gap:1rem;font-family:'DM Mono',monospace;font-size:0.67rem;letter-spacing:0.07em;}
+.edu-gpa{color:var(--gold2);}
+.edu-date{color:var(--teal2);}
+.skills-wrap{margin-top:1.5rem;}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.45rem;margin-top:0.8rem;}
+.skill-tag{
+  padding:0.48rem 0.75rem;border-radius:2px;
+  background:rgba(29,138,156,0.1);border:1px solid rgba(29,138,156,0.22);
+  font-size:0.77rem;color:rgba(247,243,238,0.7);transition:all 0.2s;cursor:default;
+}
+.skill-tag:hover{background:rgba(29,138,156,0.2);border-color:var(--teal2);color:var(--teal2);}
+@media(max-width:860px){.about-grid{grid-template-columns:1fr;gap:2.5rem;}}
+
+/* ═══════════════════════════════════════════════
+   PAGE: RESEARCH
+════════════════════════════════════════════════ */
+#page-research{background:var(--navy);}
+
+/* ═══════════════════════════════════════════════
+   PAGE: PROJECTS
+════════════════════════════════════════════════ */
+#page-projects{background:#0a1a2a;}
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;}
+.proj-type{font-family:'DM Mono',monospace;font-size:0.64rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal2);margin-bottom:0.7rem;}
+.proj-title{font-family:'Playfair Display',serif;font-size:1.08rem;font-weight:600;color:var(--cream);line-height:1.4;margin-bottom:0.8rem;}
+.proj-desc{font-size:0.85rem;color:rgba(247,243,238,0.52);line-height:1.75;}
+.proj-tags{margin-top:1rem;}
+.proj-date{margin-top:1.1rem;font-family:'DM Mono',monospace;font-size:0.66rem;color:var(--gold2);letter-spacing:0.1em;}
+@media(max-width:700px){.projects-grid{grid-template-columns:1fr;}}
+
+/* ═══════════════════════════════════════════════
+   PAGE: CONFERENCES
+════════════════════════════════════════════════ */
+#page-conferences{background:var(--navy);}
+.conf-list{display:flex;flex-direction:column;gap:1.4rem;}
+.conf-card{
+  display:grid;grid-template-columns:auto 1fr;gap:1.8rem;align-items:start;
+  padding:2rem;border-radius:3px;
+  background:rgba(255,255,255,0.03);border:1px solid rgba(247,243,238,0.07);
+  transition:border-color 0.22s;
+}
+.conf-card:hover{border-color:rgba(29,138,156,0.32);}
+.conf-year{
+  font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;
+  color:var(--gold);line-height:1;writing-mode:vertical-rl;
+  text-orientation:mixed;letter-spacing:0.04em;padding-top:0.2rem;
+}
+.conf-meta{font-family:'DM Mono',monospace;font-size:0.66rem;color:var(--teal2);letter-spacing:0.1em;margin-bottom:0.45rem;}
+.conf-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--cream);margin-bottom:0.5rem;line-height:1.4;}
+.conf-paper{
+  font-size:0.83rem;font-style:italic;color:rgba(247,243,238,0.52);
+  line-height:1.65;border-left:2px solid var(--teal);padding-left:0.8rem;margin:0.55rem 0;
+}
+.conf-org{font-size:0.77rem;color:rgba(247,243,238,0.3);margin-top:0.4rem;}
+@media(max-width:600px){.conf-card{grid-template-columns:1fr;}.conf-year{writing-mode:horizontal-tb;font-size:1rem;margin-bottom:0.5rem;}}
+
+/* ═══════════════════════════════════════════════
+   PAGE: AWARDS
+════════════════════════════════════════════════ */
+#page-awards{background:#0a1a2a;}
+.awards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:3.5rem;}
+.award-card{
+  padding:2rem;border-radius:3px;text-align:center;
+  background:rgba(201,146,26,0.06);border:1px solid rgba(201,146,26,0.2);
+  transition:all 0.25s;
+}
+.award-card:hover{background:rgba(201,146,26,0.13);transform:translateY(-3px);}
+.award-icon{font-size:2.2rem;margin-bottom:0.9rem;display:block;}
+.award-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--gold2);margin-bottom:0.5rem;}
+.award-detail{font-size:0.82rem;color:rgba(247,243,238,0.52);line-height:1.6;}
+.award-date{font-family:'DM Mono',monospace;font-size:0.66rem;color:var(--teal2);margin-top:0.65rem;letter-spacing:0.1em;}
+.member-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+.member-card{
+  display:flex;align-items:center;gap:1.2rem;padding:1.3rem 1.5rem;border-radius:3px;
+  background:rgba(255,255,255,0.03);border:1px solid rgba(247,243,238,0.07);transition:all 0.2s;
+}
+.member-card:hover{border-color:rgba(29,138,156,0.3);background:rgba(29,138,156,0.06);}
+.member-icon{
+  width:42px;height:42px;border-radius:50%;flex-shrink:0;
+  background:rgba(29,138,156,0.15);border:1px solid rgba(29,138,156,0.3);
+  display:flex;align-items:center;justify-content:center;font-size:1.15rem;
+}
+.member-org{font-size:0.88rem;font-weight:500;color:var(--cream);margin-bottom:0.18rem;}
+.member-role{font-size:0.77rem;color:var(--teal2);}
+.member-period{font-family:'DM Mono',monospace;font-size:0.63rem;color:rgba(247,243,238,0.3);margin-top:0.18rem;}
+@media(max-width:700px){.awards-grid{grid-template-columns:1fr;}.member-grid{grid-template-columns:1fr;}}
+
+/* ═══════════════════════════════════════════════
+   PAGE: CONTACT
+════════════════════════════════════════════════ */
+#page-contact{background:var(--navy);}
+.contact-wrap{max-width:660px;margin:0 auto;text-align:center;padding:4rem 2rem;}
+.contact-wrap>p{font-size:0.94rem;color:rgba(247,243,238,0.52);line-height:1.82;margin-bottom:2.5rem;}
+.contact-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;text-align:left;}
+.contact-card{
+  padding:1.4rem;border-radius:3px;
+  background:rgba(255,255,255,0.03);border:1px solid rgba(247,243,238,0.08);
+  text-decoration:none;display:block;transition:all 0.2s;cursor:pointer;
+}
+.contact-card:hover{border-color:rgba(29,138,156,0.4);background:rgba(29,138,156,0.07);}
+.cc-label{font-family:'DM Mono',monospace;font-size:0.64rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal2);margin-bottom:0.4rem;}
+.cc-value{font-size:0.87rem;color:var(--cream);line-height:1.5;}
+.social-row{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
+.social-btn{
+  padding:0.62rem 1.4rem;border-radius:2px;border:1px solid rgba(247,243,238,0.15);
+  color:rgba(247,243,238,0.62);text-decoration:none;font-size:0.79rem;
+  letter-spacing:0.07em;cursor:pointer;background:none;font-family:'DM Sans',sans-serif;
+  transition:all 0.2s;
+}
+.social-btn:hover{border-color:var(--gold2);color:var(--gold2);}
+@media(max-width:600px){.contact-cards{grid-template-columns:1fr;}.contact-wrap{padding:3rem 1rem;}}
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="wrap">
-    <a class="brand" href="#top">A. H. Tomal</a>
-    <ul>
-      <li><a class="link" href="#about">About</a></li>
-      <li><a class="link" href="#experience">Experience</a></li>
-      <li><a class="link" href="#publications">Publications</a></li>
-      <li><a class="link" href="#education">Education</a></li>
-      <li><a class="link" href="#awards">Awards</a></li>
-      <li><a class="link" href="#activities">Activities</a></li>
-      <li><a class="link" href="#contact">Contact</a></li>
-    </ul>
+<!-- ── NAV ──────────────────────────────────────────────────── -->
+<nav id="navbar">
+  <div class="nav-logo" onclick="showPage('home')">A. Tomal</div>
+  <div class="nav-links" id="navLinks">
+    <button onclick="showPage('home')"     class="active" data-page="home">Home</button>
+    <button onclick="showPage('about')"    data-page="about">About</button>
+    <button onclick="showPage('research')" data-page="research">Research</button>
+    <button onclick="showPage('projects')" data-page="projects">Projects</button>
+    <button onclick="showPage('publications')" data-page="publications">Publications</button>
+    <button onclick="showPage('conferences')" data-page="conferences">Conferences</button>
+    <button onclick="showPage('awards')"   data-page="awards">Awards</button>
+    <button onclick="showPage('contact')"  data-page="contact">Contact</button>
   </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<header class="hero" id="top">
-  <div class="wrap">
-    <img src="photo.jpg" alt="Portrait of Md. Asiful Haque Tomal">
-    <div>
-      <h1>Md. Asiful Haque Tomal</h1>
-      <p class="role">Geographer &amp; Environmental Researcher &middot; Photographer</p>
-      <p class="lead">MSc candidate in Geography and Environment at Pabna University of Science and Technology (PUST), Bangladesh, studying how riverine communities cope with riverbank erosion and floods.</p>
-      <div class="links">
-        <a class="btn" href="mailto:asifulhaquetomal@gmail.com"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>Email</a>
-        <a class="btn" href="https://www.linkedin.com/in/asifulh" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.3 21 14.7V21h-4v-5.6c0-1.34-.03-3.06-1.86-3.06-1.87 0-2.15 1.46-2.15 2.96V21H9z"/></svg>LinkedIn</a>
-        <a class="btn" href="https://www.facebook.com/Asifulh.tom" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>Facebook</a>
-        <a class="btn" href="https://www.instagram.com/_haq.asiful/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 7.3A4.7 4.7 0 1 0 16.7 12 4.7 4.7 0 0 0 12 7.3zm0 7.7a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm6-7.9a1.1 1.1 0 1 1-1.1-1.1A1.1 1.1 0 0 1 18 7.1zM21.9 7a5.4 5.4 0 0 0-1.5-3.9A5.4 5.4 0 0 0 16.5 1.6C15 1.5 9 1.5 7.5 1.6a5.4 5.4 0 0 0-3.9 1.5A5.4 5.4 0 0 0 2.1 7C2 8.5 2 15.5 2.1 17a5.4 5.4 0 0 0 1.5 3.9 5.4 5.4 0 0 0 3.9 1.5c1.5.1 7.5.1 9 0a5.4 5.4 0 0 0 3.9-1.5 5.4 5.4 0 0 0 1.5-3.9c.1-1.5.1-8.5 0-10zM19.8 18.6a3 3 0 0 1-1.7 1.7c-1.2.5-4 .4-5.3.4s-4.1.1-5.3-.4a3 3 0 0 1-1.7-1.7c-.5-1.2-.4-4-.4-5.3s-.1-4.1.4-5.3a3 3 0 0 1 1.7-1.7c1.2-.5 4-.4 5.3-.4s4.1-.1 5.3.4a3 3 0 0 1 1.7 1.7c.5 1.2.4 4 .4 5.3s.1 4.1-.4 5.3z"/></svg>Instagram</a>
+<!-- ════════════════════════════════════════════════
+     PAGE: HOME
+═════════════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-left">
+      <div class="hero-eyebrow" style="animation:fadeUp .6s .08s ease both;opacity:0;">Geographer &amp; Researcher</div>
+      <h1 style="animation:fadeUp .6s .18s ease both;opacity:0;">Md. Asiful<br>Haque <em>Tomal</em></h1>
+      <div class="hero-sub" style="animation:fadeUp .6s .28s ease both;opacity:0;">Environmental Researcher · GIS Specialist · Field Scientist</div>
+      <p class="hero-desc" style="animation:fadeUp .6s .36s ease both;opacity:0;">
+        Investigating riverbank erosion, flood vulnerability, and livelihood impacts across Bangladesh's riverine communities. Grounded in field research, spatial analysis, and evidence-based scholarship.
+      </p>
+      <div class="cta-row" style="animation:fadeUp .6s .44s ease both;opacity:0;">
+        <button class="btn-p" onclick="showPage('research')">View Research</button>
+        <button class="btn-o" onclick="showPage('contact')">Get in Touch</button>
+      </div>
+      <div class="stats" style="animation:fadeUp .6s .52s ease both;opacity:0;">
+        <div class="stat"><div class="stat-n">3+</div><div class="stat-l">Years Research</div></div>
+        <div class="stat"><div class="stat-n">2</div><div class="stat-l">Manuscripts</div></div>
+        <div class="stat"><div class="stat-n">3</div><div class="stat-l">Conferences</div></div>
+        <div class="stat"><div class="stat-n">7</div><div class="stat-l">Awards</div></div>
+      </div>
+    </div>
+    <div class="hero-right" style="animation:fadeUp .8s .28s ease both;opacity:0;">
+      <div class="photo-frame">
+        <img src="profile.jpg" alt="Md. Asiful Haque Tomal">
+        <div class="photo-badge">MSc · Geography &amp; Environment</div>
+      </div>
+    </div>
+  </section>
+  <footer>&copy; 2026 &middot; Md. Asiful Haque Tomal &middot; All rights reserved</footer>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     PAGE: ABOUT
+═════════════════════════════════════════════════ -->
+<div class="page" id="page-about">
+  <div class="page-banner">
+    <div class="eyebrow">About Me</div>
+    <h1>Geographer &amp;<br>Field Researcher</h1>
+    <p>Passionate about environmental research, community resilience, and the human dimensions of natural hazards.</p>
+  </div>
+  <div class="section">
+    <div class="about-grid">
+      <div>
+        <div class="section-label">Profile</div>
+        <h2>Who I Am</h2>
+        <div class="about-text">
+          <p>I am a geographer and environmental researcher based in Pabna, Bangladesh, currently pursuing my MSc at Pabna University of Science and Technology. My research focuses on the intersection of natural hazards, human geography, and community resilience — particularly how riverbank erosion and flood events shape the livelihoods of vulnerable populations.</p>
+          <p>With over three years of field research experience, I have collected primary data across Kurigram, Bogura and Sirajganj districts using household surveys, KIIs, FGDs and PRA, mapped erosion with GIS and DSAS, and worked as a field researcher on a JSPS-funded international project led from Aoyama Gakuin University, Tokyo. My work has been presented at three conferences, one of them international, and one journal manuscript has been accepted in principle.</p>
+          <p>Beyond research, I have served as President of Konthoswor Abbritti Dol (PUST's recitation organization), Vice-President of the PUST Photographic Society and Green Voice, and Additional General Secretary of Chitro &ndash; Fine Art Society of PUST. I am now Associate Editor (Fiction) of the literary magazine <i>Kothar Kagoj</i>.</p>
+          <p>My interests span fiction and non-fiction reading, Bengali poetry, photography across multiple genres — nature, street, landscape, portrait, macro — and poem recitation, reflecting my belief in the inseparable link between art and science.</p>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Education</div>
+        <h2>Academic Background</h2>
+        <div class="edu-item fu">
+          <div class="edu-degree">MSc in Geography and Environment</div>
+          <div class="edu-inst">Pabna University of Science and Technology</div>
+          <div class="edu-meta"><span class="edu-date">Sep 2025 – Present</span><span class="edu-gpa">In Progress</span></div>
+        </div>
+        <div class="edu-item fu">
+          <div class="edu-degree">BSc in Geography and Environment</div>
+          <div class="edu-inst">Pabna University of Science and Technology</div>
+          <div class="edu-meta"><span class="edu-date">Jan 2020 – Sep 2025</span><span class="edu-gpa">CGPA 3.25 / 4.00</span></div>
+        </div>
+        <div class="edu-item fu">
+          <div class="edu-degree">Higher Secondary Certificate (HSC)</div>
+          <div class="edu-inst">Govt. Azizul Haque College, Bogura</div>
+          <div class="edu-meta"><span class="edu-date">2017 – 2019</span><span class="edu-gpa">GPA 4.75 / 5.00</span></div>
+        </div>
+        <div class="edu-item fu">
+          <div class="edu-degree">Secondary School Certificate (SSC)</div>
+          <div class="edu-inst">Durgahata High School</div>
+          <div class="edu-meta"><span class="edu-date">2012 – 2017</span><span class="edu-gpa">GPA 5.00 / 5.00</span></div>
+        </div>
+        <div class="skills-wrap">
+          <div class="section-label" style="margin-top:2rem;">Skills &amp; Tools</div>
+          <div class="skills-grid">
+            <div class="skill-tag">ArcGIS</div><div class="skill-tag">DSAS Shoreline Analysis</div>
+            <div class="skill-tag">Field Survey Design</div><div class="skill-tag">KIIs · FGDs · PRA</div>
+            <div class="skill-tag">GIS Mapping</div><div class="skill-tag">Data Cleaning &amp; Analysis</div>
+            <div class="skill-tag">Academic Writing</div><div class="skill-tag">Literature Review</div>
+            <div class="skill-tag">Adobe Lightroom / Photoshop</div><div class="skill-tag">Microsoft Office</div>
+            <div class="skill-tag">Canva / PixelLab</div><div class="skill-tag">CapCut / Snapseed</div>
+            <div class="skill-tag">Bengali (Native)</div><div class="skill-tag">English (Professional)</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</header>
-
-<div class="wrap">
-  <div class="stats">
-    <div class="stat"><b>3+</b><span>years of field research</span></div>
-    <div class="stat"><b>2</b><span>journal manuscripts</span></div>
-    <div class="stat"><b>3</b><span>conference presentations</span></div>
-    <div class="stat"><b>7</b><span>honours and awards</span></div>
-  </div>
+  <footer>&copy; 2026 &middot; Md. Asiful Haque Tomal</footer>
 </div>
 
-<main class="wrap">
-
-<section id="about">
-  <h2>About</h2>
-  <p>I am a geographer from Bangladesh working on the human side of natural hazards. My field research in Kurigram, Bogura and Sirajganj districts looks at how riverbank erosion and floods reshape livelihoods, and what makes char and riverine communities more resilient. I combine household surveys and participatory methods (KIIs, FGDs, PRA) with GIS mapping and resilience-index analysis, and I have worked as a field researcher on a JSPS-funded international project.</p>
-  <p>Outside research I write Bengali poetry, serve as Associate Editor (Fiction) of the literary magazine <i>Kothar Kagoj</i>, and photograph nature, streets and people.</p>
-  <div class="chips">
-    <span class="chip">Natural hazards</span>
-    <span class="chip">Riverbank erosion</span>
-    <span class="chip">Flood defenses</span>
-    <span class="chip">Livelihood vulnerability</span>
-    <span class="chip">Community resilience</span>
-    <span class="chip">Cultural geography</span>
+<!-- ════════════════════════════════════════════════
+     PAGE: RESEARCH
+═════════════════════════════════════════════════ -->
+<div class="page" id="page-research">
+  <div class="page-banner">
+    <div class="eyebrow">Work Experience</div>
+    <h1>Research<br>Experience</h1>
+    <p>Field-based investigations into riverbank erosion, flood vulnerability, and livelihood resilience across Bangladesh.</p>
   </div>
-</section>
-
-<section id="experience">
-  <h2>Research Experience</h2>
-
-  <div class="item">
-    <div class="when">Sep 2025 &ndash; Aug 2026</div>
-    <div>
-      <h3>Research Assistant</h3>
-      <div class="where">RTTC-funded research project, Pabna University of Science and Technology</div>
-      <p><i>Assessing Riverbank Erosion-Induced Livelihood Vulnerability using LVI, GIS, and DSAS: Evidence from Begumganj Union, Ulipur, Kurigram.</i> Project Director: Md. Abrar Tazwar Rijon.</p>
-      <ul>
-        <li>Designed survey instruments and collected household survey data (n = 278), KIIs and FGDs</li>
-        <li>Ran GIS and DSAS shoreline analysis and mapped riverbank erosion patterns (2017&ndash;2026)</li>
-        <li>Wrote the literature review; handled data entry, statistical analysis and documentation of results</li>
-      </ul>
+  <div class="section">
+    <div class="timeline">
+      <div class="tl-item fu">
+        <div class="tl-dot"></div>
+        <div class="tl-meta">SEP 2025 — AUG 2026 · BEGUMGANJ, ULIPUR, KURIGRAM</div>
+        <div class="tl-title">Research Assistant</div>
+        <div class="tl-org">RTTC-Funded Research Project · Pabna University of Science and Technology</div>
+        <div class="tl-project">
+          "Assessing Riverbank Erosion-Induced Livelihood Vulnerability using LVI, GIS, and DSAS: Evidence from Begumganj Union, Ulipur, Kurigram"<br>
+          <span style="font-size:0.77rem;color:rgba(247,243,238,0.32);">Research and Technology Transfer Cell (RTTC), PUST · FY 2025–26, Phase II · Project Director: Md. Abrar Tazwar Rijon</span>
+        </div>
+        <ul class="tl-bullets">
+          <li>Designed survey instruments and collected household survey data (n = 278), KIIs and FGDs</li>
+          <li>Ran GIS and DSAS shoreline analysis and mapped riverbank erosion patterns (2017–2026)</li>
+          <li>Wrote the literature review on erosion and livelihood impacts</li>
+          <li>Handled data entry, statistical analysis and documentation of results</li>
+        </ul>
+      </div>
+      <div class="tl-item fu">
+        <div class="tl-dot"></div>
+        <div class="tl-meta">JUL 2024 — JUL 2025 · PABNA, BANGLADESH</div>
+        <div class="tl-title">Research Assistant</div>
+        <div class="tl-org">UGC Funded Research Project · Pabna University of Science and Technology</div>
+        <div class="tl-project">"Livelihood Vulnerability of Riverine People in the Context of Flood Impacts: A Case Study of Kurigram District of Bangladesh"</div>
+        <ul class="tl-bullets">
+          <li>Conducted field surveys across flood-affected riverine communities in Kurigram District</li>
+          <li>Created GIS maps illustrating flood impact zones and vulnerable settlements</li>
+          <li>Led literature review and authored key content sections of the research report</li>
+          <li>Constructed data visualisations, graphs, and charts for result analysis</li>
+          <li>Contributed to result and discussion chapters of the final report</li>
+        </ul>
+      </div>
+      <div class="tl-item fu">
+        <div class="tl-dot"></div>
+        <div class="tl-meta">2023 — 2024 · FIELDWORK, BANGLADESH</div>
+        <div class="tl-title">Research Assistant</div>
+        <div class="tl-org">JSPS-Funded International Project · Aoyama Gakuin University, Tokyo</div>
+        <div class="tl-project">
+          "Solar Pump Irrigation in South Asia: Impact on Irrigation Efficiency, Income Distribution, and Environmental Sustainability"<br>
+          <span style="font-size:0.77rem;color:rgba(247,243,238,0.32);">Japan Society for the Promotion of Science · Led by Dr. Koichi Fujita, Professor of Economics</span>
+        </div>
+        <ul class="tl-bullets">
+          <li>Pilot-tested survey tools and prepared field logistics kits</li>
+          <li>Administered structured questionnaires and in-depth interviews as a field enumerator</li>
+          <li>Facilitated KIIs, FGDs and PRA sessions and led communication with local stakeholders</li>
+          <li>Entered and cleaned survey data and reconciled qualitative field notes for quality assurance</li>
+        </ul>
+      </div>
     </div>
   </div>
+  <footer>&copy; 2026 &middot; Md. Asiful Haque Tomal</footer>
+</div>
 
-  <div class="item">
-    <div class="when">Jul 2024 &ndash; Jul 2025</div>
-    <div>
-      <h3>Research Assistant</h3>
-      <div class="where">UGC-funded research project, Pabna University of Science and Technology</div>
-      <p><i>Livelihood Vulnerability of Riverine People in the Context of Flood Impacts: A Case Study of Kurigram District of Bangladesh.</i></p>
-      <ul>
-        <li>Conducted field surveys across flood-affected riverine communities in Kurigram District</li>
-        <li>Produced GIS maps of flood impact zones and vulnerable settlements</li>
-        <li>Led the literature review, wrote key report sections and built the result graphs and charts</li>
-      </ul>
+<!-- ════════════════════════════════════════════════
+     PAGE: PROJECTS
+═════════════════════════════════════════════════ -->
+<div class="page" id="page-projects">
+  <div class="page-banner">
+    <div class="eyebrow">Academic Projects</div>
+    <h1>Research<br>Portfolio</h1>
+    <p>Investigating flood defence failures and char-dweller resilience along Bangladesh's major river systems.</p>
+  </div>
+  <div class="section">
+    <div class="projects-grid">
+      <div class="card fu">
+        <div class="proj-type">MS Thesis · Ongoing</div>
+        <div class="proj-title">Failure Hotspots in Engineered Flood Defenses: Evidence from Breaching of the Brahmaputra Right Embankment and Its Socio-Economic Consequences</div>
+        <div class="proj-desc">Investigating structural and institutional failure points in the Brahmaputra Right Embankment. The study analyses socio-economic consequences for riverine communities following embankment breaches, aiming to inform more resilient flood defence policy in Bangladesh.</div>
+        <div class="proj-tags"><span class="tag">Flood Defense</span><span class="tag">Socio-Economic</span><span class="tag">GIS</span><span class="tag">Policy</span></div>
+        <div class="proj-date">ONGOING · PUST · Role: Researcher</div>
+      </div>
+      <div class="card fu">
+        <div class="proj-type">BSc Research Project · Completed</div>
+        <div class="proj-title">Resilience Capacity Assessment of Brahmaputra-Jamuna Char Dwellers due to Riverbank Erosion Hazards: A case of Sariakandi Upazila, Bogura District</div>
+        <div class="proj-desc">Assessed adaptive resilience of char-dwelling communities in Sariakandi Upazila, Bogura. Examined livelihood strategies, social capital, and community coping responses to chronic erosion hazards along the Brahmaputra-Jamuna using primary field data and GIS mapping.</div>
+        <div class="proj-tags"><span class="tag">Resilience</span><span class="tag">Riverbank Erosion</span><span class="tag">Livelihood</span><span class="tag">Field Research</span></div>
+        <div class="proj-date">APR 2024 — MAY 2025 · PUST · Role: Researcher</div>
+      </div>
     </div>
   </div>
+  <footer>&copy; 2026 &middot; Md. Asiful Haque Tomal</footer>
+</div>
 
-  <div class="item">
-    <div class="when">2023 &ndash; 2024</div>
-    <div>
-      <h3>Research Assistant</h3>
-      <div class="where">JSPS-funded international project, Aoyama Gakuin University, Tokyo</div>
-      <p><i>Solar Pump Irrigation in South Asia: Impact on Irrigation Efficiency, Income Distribution, and Environmental Sustainability</i>, led by Dr. Koichi Fujita.</p>
-      <ul>
-        <li>Administered structured questionnaires and in-depth interviews as a field enumerator</li>
-        <li>Facilitated KIIs, FGDs and PRA sessions and led communication with local stakeholders</li>
-        <li>Pilot-tested survey tools, and cleaned and reconciled survey data for quality assurance</li>
-      </ul>
+<!-- ════════════════════════════════════════════════
+     PAGE: PUBLICATIONS
+═════════════════════════════════════════════════ -->
+<div class="page" id="page-publications">
+  <div class="page-banner">
+    <div class="eyebrow">Scholarly Output</div>
+    <h1>Publications &amp;<br>Manuscripts</h1>
+    <p>Journal manuscripts and published conference abstracts on riverbank erosion, resilience and livelihood vulnerability.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">Journal Manuscripts</div>
+    <h2>In the Pipeline</h2>
+    <div class="conf-list" style="margin-bottom:3.5rem;">
+      <div class="conf-card fu">
+        <div class="conf-year">2026</div>
+        <div>
+          <div class="conf-meta">JOURNAL OF HAZARDS, RISK AND RESILIENCE · SCILIGHT PRESS · ID JHRR-26070270</div>
+          <div class="conf-title">Assessing Community Resilience to Brahmaputra-Jamuna Riverbank Erosion Using a Multidimensional Erosion Disaster Resilience Index: Evidence from Sariakandi, Bangladesh</div>
+          <div class="conf-paper">Tomal, M. A. H. (lead author), Islam, M. N. (corresponding author), &amp; Rahman, M. A.</div>
+          <div class="conf-org"><span class="tag">Accepted in principle, pending ethics approval</span></div>
+        </div>
+      </div>
+      <div class="conf-card fu">
+        <div class="conf-year">2026</div>
+        <div>
+          <div class="conf-meta">INTERNATIONAL JOURNAL OF DISASTER RISK REDUCTION · ELSEVIER</div>
+          <div class="conf-title">Flood Risk Mapping and Livelihood Vulnerability of Riverine Communities: A Machine Learning and LVI-Based Approach in Northern Bangladesh</div>
+          <div class="conf-paper">Rijon, M. A. T., Rahman, O., Tomal, M. A. H., Hossain, M. F. (corresponding author), &amp; Ahmed, L.</div>
+          <div class="conf-org"><span class="tag">Submitted, October 2026</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="section-label">Conference Proceedings</div>
+    <h2>Published Abstracts</h2>
+    <div class="projects-grid">
+      <div class="card fu">
+        <div class="proj-type">EFAST-2026 · International</div>
+        <div class="proj-title">Community-based Anticipatory Actions and Needs Assessment for the Brahmaputra-Jamuna Riverbank Erosion: Evidence from Shahjadpur Upazila, Sirajganj</div>
+        <div class="proj-desc">Islam, M., Islam, M. N., &amp; Tomal, M. A. H. (corresponding author). Proceedings of EFAST-2026, PUST &amp; Universiti Malaysia Perlis. ISBN 978-984-37-0635-5.</div>
+        <div class="proj-date">JUN 27–28, 2026 · PABNA</div>
+      </div>
+      <div class="card fu">
+        <div class="proj-type">BAPA–BEN · National</div>
+        <div class="proj-title">Assessing Socio-economic Impacts of Riverbank Erosion among the Char Dwellers at Sariakandi in Bogura District</div>
+        <div class="proj-desc">Tomal, M. A. H., Islam, M. N., &amp; Rahman, M. A. Volume of Abstracts, National Conference on Environmental Reforms in Bangladesh: Necessity and Task, p. 128.</div>
+        <div class="proj-date">JAN 9–10, 2026 · DHAKA</div>
+      </div>
+      <div class="card fu">
+        <div class="proj-type">PUST · National</div>
+        <div class="proj-title">Assessing Resilience to Riverbank Erosion: A Case Study of Char Dwellers in Sariakandi, Bogura, Bangladesh</div>
+        <div class="proj-desc">Tomal, M. A. H., &amp; Islam, M. N. Conference Proceedings, 1st National Conference on Towards a Sustainable Future, Faculty of Humanities and Social Science, PUST.</div>
+        <div class="proj-date">JUN 28, 2025 · PABNA</div>
+      </div>
     </div>
   </div>
-</section>
+  <footer>&copy; 2026 &middot; Md. Asiful Haque Tomal</footer>
+</div>
 
-<section id="publications">
-  <h2>Publications</h2>
-  <h3 style="font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:0 0 4px">Journal manuscripts</h3>
-  <div class="pub">
-    <b>Tomal, M. A. H.</b>, Islam, M. N.*, &amp; Rahman, M. A. Assessing community resilience to Brahmaputra-Jamuna riverbank erosion using a multidimensional Erosion Disaster Resilience Index: Evidence from Sariakandi, Bangladesh. <i>Journal of Hazards, Risk and Resilience</i> (Scilight Press).<br>
-    <span class="status">Accepted in principle, pending ethics approval</span>
+<!-- ════════════════════════════════════════════════
+     PAGE: CONFERENCES
+═════════════════════════════════════════════════ -->
+<div class="page" id="page-conferences">
+  <div class="page-banner">
+    <div class="eyebrow">Academic Presentations</div>
+    <h1>Conferences &amp;<br>Seminars</h1>
+    <p>Presenting field research findings at international and national conferences on hazards, environmental reform and sustainable development.</p>
   </div>
-  <div class="pub">
-    Rijon, M. A. T., Rahman, O., <b>Tomal, M. A. H.</b>, Hossain, M. F.*, &amp; Ahmed, L. Flood risk mapping and livelihood vulnerability of riverine communities: A machine learning and LVI-based approach in Northern Bangladesh. <i>International Journal of Disaster Risk Reduction</i> (Elsevier).<br>
-    <span class="status">Submitted, October 2026</span>
-  </div>
-
-  <h3 style="font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:24px 0 4px">Conference proceedings (abstracts)</h3>
-  <div class="pub">
-    Islam, M., Islam, M. N., &amp; <b>Tomal, M. A. H.</b>* (2026). Community-based anticipatory actions and needs assessment for the Brahmaputra-Jamuna riverbank erosion: Evidence from Shahjadpur Upazila under Sirajganj District in Bangladesh. <i>EFAST-2026 International Conference</i>, PUST &amp; Universiti Malaysia Perlis, Pabna, 27&ndash;28 June 2026. ISBN 978-984-37-0635-5.
-  </div>
-  <div class="pub">
-    <b>Tomal, M. A. H.</b>, Islam, M. N., &amp; Rahman, M. A. (2026). Assessing socio-economic impacts of riverbank erosion among the char dwellers at Sariakandi in Bogura District. <i>National Conference on Environmental Reforms in Bangladesh</i>, BAPA &amp; BEN, Dhaka, 9&ndash;10 January 2026.
-  </div>
-  <div class="pub">
-    <b>Tomal, M. A. H.</b>, &amp; Islam, M. N. (2025). Assessing resilience to riverbank erosion: A case study of char dwellers in Sariakandi, Bogura, Bangladesh. <i>1st National Conference on Towards a Sustainable Future</i>, Faculty of Humanities and Social Science, PUST, 28 June 2025.
-  </div>
-  <p class="note">* Corresponding author</p>
-</section>
-
-<section id="education">
-  <h2>Education</h2>
-  <div class="item">
-    <div class="when">2025 &ndash; Present</div>
-    <div>
-      <h3>MSc in Geography and Environment</h3>
-      <div class="where">Pabna University of Science and Technology</div>
-      <p>Thesis: <i>Failure Hotspots in Engineered Flood Defenses: Evidence from Breaching of the Brahmaputra Right Embankment and Its Socio-Economic Consequences.</i></p>
+  <div class="section">
+    <div class="conf-list">
+      <div class="conf-card fu">
+        <div class="conf-year">2026</div>
+        <div>
+          <div class="conf-meta">JUN 27–28, 2026 · PABNA UNIVERSITY OF SCIENCE AND TECHNOLOGY · INTERNATIONAL</div>
+          <div class="conf-title">International Conference on Emerging Frontiers in Advanced Sciences and Technologies 2026 (EFAST-2026)</div>
+          <div class="conf-paper">"Community-based Anticipatory Actions and Needs Assessment for the Brahmaputra-Jamuna Riverbank Erosion: Evidence from Shahjadpur Upazila under Sirajganj District in Bangladesh"</div>
+          <div class="conf-org">Organized by Faculty of Science and Faculty of Life and Earth Science, PUST, with the Centre of Excellence for Advanced Computing, Universiti Malaysia Perlis</div>
+        </div>
+      </div>
+      <div class="conf-card fu">
+        <div class="conf-year">2026</div>
+        <div>
+          <div class="conf-meta">JAN 9–10, 2026 · KRISHIBID INSTITUTION BANGLADESH (KIB), FARMGATE, DHAKA</div>
+          <div class="conf-title">National Conference on Environmental Reforms in Bangladesh: Necessity and Task</div>
+          <div class="conf-paper">"Assessing Socio-economic Impacts of Riverbank Erosion among The Char Dwellers at Sariakandi in Bogura District"</div>
+          <div class="conf-org">Organized by Bangladesh Poribesh Andolon (BAPA) &amp; Bangladesh Environment Network (BEN)</div>
+        </div>
+      </div>
+      <div class="conf-card fu">
+        <div class="conf-year">2025</div>
+        <div>
+          <div class="conf-meta">JUN 28, 2025 · PABNA UNIVERSITY OF SCIENCE AND TECHNOLOGY</div>
+          <div class="conf-title">1st National Conference on Towards a Sustainable Future: Economic Stability, Political Reforms and Socio-Cultural Transformations in Bangladesh</div>
+          <div class="conf-paper">"Assessing Resilience to Riverbank Erosion: A Case Study of Char Dwellers in Sariakandi, Bogura, Bangladesh"</div>
+          <div class="conf-org">Organized by Faculty of Humanities and Social Science, Pabna University of Science and Technology</div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="item">
-    <div class="when">2020 &ndash; 2025</div>
-    <div>
-      <h3>BSc in Geography and Environment</h3>
-      <div class="where">Pabna University of Science and Technology &middot; CGPA 3.25 / 4.00</div>
-      <p>Research project: <i>Resilience Capacity Assessment of Brahmaputra-Jamuna Char Dwellers due to Riverbank Erosion Hazards: A case of Sariakandi Upazila, Bogura District.</i></p>
+  <footer>&copy; 2026 &middot; Md. Asiful Haque Tomal</footer>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     PAGE: AWARDS
+═════════════════════════════════════════════════ -->
+<div class="page" id="page-awards">
+  <div class="page-banner">
+    <div class="eyebrow">Recognition</div>
+    <h1>Honours, Awards<br>&amp; Memberships</h1>
+    <p>Recognition for research, creativity, and community leadership at national and university levels.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">Honours &amp; Awards</div>
+    <h2>Achievements</h2>
+    <div class="awards-grid">
+      <div class="award-card fu">
+        <span class="award-icon">🎤</span>
+        <div class="award-name">Nazrul Year Celebration 2026</div>
+        <div class="award-detail">2nd Place — Extempore Speech<br>Pabna University of Science and Technology</div>
+        <div class="award-date">OCT 26, 2026</div>
+      </div>
+      <div class="award-card fu">
+        <span class="award-icon">🥇</span>
+        <div class="award-name">Tarunner Utsob 2025</div>
+        <div class="award-detail">1st Place — Speech Competition<br>District Government Public Library, Pabna</div>
+        <div class="award-date">AUG 10, 2025</div>
+      </div>
+      <div class="award-card fu">
+        <span class="award-icon">🥉</span>
+        <div class="award-name">Tarunner Utsob 2025</div>
+        <div class="award-detail">3rd Place (joint) — Recitation<br>District Government Public Library, Pabna</div>
+        <div class="award-date">JUL 21, 2025</div>
+      </div>
+      <div class="award-card fu">
+        <span class="award-icon">📚</span>
+        <div class="award-name">National Library Day 2025</div>
+        <div class="award-detail">1st Place — Extempore Speech<br>1st Place — Book Reading<br>District Government Public Library, Pabna</div>
+        <div class="award-date">FEB 3, 2025</div>
+      </div>
+      <div class="award-card fu">
+        <span class="award-icon">🏅</span>
+        <div class="award-name">Disaster Hackathon 2.0</div>
+        <div class="award-detail">3rd Best Campus Ambassador<br>FOREWARN Bangladesh, Start Network</div>
+        <div class="award-date">OCT 30, 2024</div>
+      </div>
+      <div class="award-card fu">
+        <span class="award-icon">📷</span>
+        <div class="award-name">Pixel Poetry</div>
+        <div class="award-detail">Winner — "Theme Campus"<br>Photography Competition, PUST Photographic Society</div>
+        <div class="award-date">MAR 4, 2024</div>
+      </div>
+      <div class="award-card fu">
+        <span class="award-icon">🥈</span>
+        <div class="award-name">Disaster Hackathon 1.0</div>
+        <div class="award-detail">First Runner-Up, Team Lead (Team Conqueror)<br>Start Network &amp; Open Mapping Hub – Asia Pacific (HOT)</div>
+        <div class="award-date">SEP 26, 2023</div>
+      </div>
+    </div>
+    <div class="section-label">Professional Development</div>
+    <h2>Training &amp; Workshops</h2>
+    <div class="member-grid" style="margin-bottom:3.5rem;">
+      <div class="member-card fu">
+        <div class="member-icon">📊</div>
+        <div><div class="member-org">Data Analysis Software (NVivo)</div><div class="member-role">Dept. of Business Administration, PUST (HEAT Sub-Project)</div><div class="member-period">OCT 12, 2026</div></div>
+      </div>
+      <div class="member-card fu">
+        <div class="member-icon">🤖</div>
+        <div><div class="member-org">Using Generative AI in Manuscript Preparation</div><div class="member-role">Elsevier Researcher Academy · Certified</div><div class="member-period">JUL 2026</div></div>
+      </div>
+      <div class="member-card fu">
+        <div class="member-icon">🌍</div>
+        <div><div class="member-org">Environmental Management Systems</div><div class="member-role">Dept. of Geography and Environment, PUST &amp; AJA Bangladesh</div><div class="member-period">NOV 29, 2025</div></div>
+      </div>
+      <div class="member-card fu">
+        <div class="member-icon">📖</div>
+        <div><div class="member-org">Wikimedia Workshop 2025, Kushtia</div><div class="member-role">Wikimedia Bangladesh &amp; Ashru Archive</div><div class="member-period">NOV 20–21, 2025</div></div>
+      </div>
+      <div class="member-card fu">
+        <div class="member-icon">🗺️</div>
+        <div><div class="member-org">Residential Prototype-Development Workshop</div><div class="member-role">Disaster Hackathon 1.0 · Start Network &amp; HOT</div><div class="member-period">SEP 24–26, 2023</div></div>
+      </div>
+    </div>
+    <div class="section-label">Community</div>
+    <h2>Leadership &amp; Memberships</h2>
+    <div class="member-grid" style="margin-bottom:3.5rem;">
+      <div class="member-card fu">
+        <div class="member-icon">✒️</div>
+        <div><div class="member-org">Kothar Kagoj (arts &amp; literature magazine)</div><div class="member-role">Associate Editor, Fiction Section</div><div class="member-period">SEP 2026 — PRESENT</div></div>
+      </div>
+      <div class="member-card fu">
+        <div class="member-icon">🌿</div>
+        <div><div class="member-org">Green Voice, PUST</div><div class="member-role">Vice-President</div><div class="member-period">SEP 2024 — MAR 2026</div></div>
+      </div>
+      <div class="member-card fu">
+        <div class="member-icon">🎨</div>
+        <div><div class="member-org">Chitro — Fine Art Society of PUST</div><div class="member-role">Additional General Secretary · earlier Joint Office Secretary</div><div class="member-period">MAR 2023 — NOV 2025</div></div>
+      </div>
+      <div class="member-card fu">
+        <div class="member-icon">📸</div>
+        <div><div class="member-org">PUST Photographic Society</div><div class="member-role">Vice-President</div><div class="member-period">MAY 2024 — MAY 2025</div></div>
+      </div>
+      <div class="member-card fu">
+        <div class="member-icon">🎙️</div>
+        <div><div class="member-org">Konthoswor Abbritti Dol, PUST</div><div class="member-role">President · earlier Finance Secretary</div><div class="member-period">2023 — MAY 2025</div></div>
+      </div>
+      <div class="member-card fu">
+        <div class="member-icon">🤝</div>
+        <div><div class="member-org">University &amp; Medical Students Association, Gabtoli, Bogura</div><div class="member-role">Assistant Secretary</div><div class="member-period">SEP 2022 — 2024</div></div>
+      </div>
+    </div>
+    <div class="section-label">Literature</div>
+    <h2>Creative Writing</h2>
+    <div class="member-grid">
+      <div class="member-card fu">
+        <div class="member-icon">📝</div>
+        <div><div class="member-org">FictionFactory — 12 Bengali poems</div><div class="member-role"><a href="https://fictionfactory.org/contributor/13529" target="_blank" style="color:var(--teal2);">"Cafeteria" chosen as Editor Featured</a></div><div class="member-period">2026</div></div>
+      </div>
+      <div class="member-card fu">
+        <div class="member-icon">📰</div>
+        <div><div class="member-org">Kothar Kagoj — five poems</div><div class="member-role">Barsha 1433 issue, pp. 23–24</div><div class="member-period">AUG 2026</div></div>
+      </div>
+      <div class="member-card fu">
+        <div class="member-icon">📕</div>
+        <div><div class="member-org">Shat Rong — joint poetry anthology</div><div class="member-role">Three poems · Nobo Shahitto Prokashoni, Dhaka</div><div class="member-period">2021</div></div>
+      </div>
     </div>
   </div>
-  <div class="item">
-    <div class="when">2017 &ndash; 2019</div>
-    <div>
-      <h3>Higher Secondary Certificate (Science)</h3>
-      <div class="where">Govt. Azizul Haque College, Bogura &middot; GPA 4.75 / 5.00</div>
+  <footer>&copy; 2026 &middot; Md. Asiful Haque Tomal</footer>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     PAGE: CONTACT
+═════════════════════════════════════════════════ -->
+<div class="page" id="page-contact">
+  <div class="page-banner">
+    <div class="eyebrow">Get In Touch</div>
+    <h1>Let's<br>Connect</h1>
+    <p>Open to research collaborations, academic discussions, and opportunities in environmental geography.</p>
+  </div>
+  <div class="section">
+    <div class="contact-wrap">
+      <p>Whether you're interested in research collaboration, academic discussions, conference networking, or just want to say hello — feel free to reach out through any of the channels below.</p>
+      <div class="contact-cards">
+        <a href="mailto:asifulhaquetomal@gmail.com" class="contact-card fu">
+          <div class="cc-label">✉ Email</div>
+          <div class="cc-value">asifulhaquetomal@gmail.com</div>
+        </a>
+        <a href="tel:+8801785320462" class="contact-card fu">
+          <div class="cc-label">📞 Phone</div>
+          <div class="cc-value">+880 1785 320 462</div>
+        </a>
+        <div class="contact-card fu">
+          <div class="cc-label">📍 Location</div>
+          <div class="cc-value">Rajapur, Pabna Sadar<br>Pabna, Bangladesh</div>
+        </div>
+        <div class="contact-card fu">
+          <div class="cc-label">🎓 Institution</div>
+          <div class="cc-value">Pabna University of<br>Science &amp; Technology</div>
+        </div>
+      </div>
+      <div class="social-row">
+        <a href="https://www.linkedin.com/in/asifulh" target="_blank" rel="noopener" class="social-btn">in LinkedIn</a>
+        <a href="https://www.instagram.com/_haq.asiful/" target="_blank" rel="noopener" class="social-btn">Instagram</a>
+        <a href="https://www.facebook.com/Asifulh.tom" target="_blank" rel="noopener" class="social-btn">Facebook</a>
+      </div>
     </div>
   </div>
-</section>
+  <footer>&copy; 2026 &middot; Md. Asiful Haque Tomal</footer>
+</div>
 
-<section id="awards">
-  <h2>Honours &amp; Training</h2>
-  <div class="grid2">
-    <div>
-      <div class="item"><div class="when">Oct 2026</div><div><h3>2nd Place, Extempore Speech</h3><div class="where">Nazrul Year Celebration 2026, PUST</div></div></div>
-      <div class="item"><div class="when">Aug 2025</div><div><h3>1st Place, Speech Competition</h3><div class="where">Tarunner Utsob 2025, District Government Public Library, Pabna</div></div></div>
-      <div class="item"><div class="when">Jul 2025</div><div><h3>3rd Place (joint), Recitation</h3><div class="where">Tarunner Utsob 2025, District Government Public Library, Pabna</div></div></div>
-      <div class="item"><div class="when">Feb 2025</div><div><h3>1st Place, Extempore Speech &amp; Book Reading</h3><div class="where">National Library Day 2025, District Government Public Library, Pabna</div></div></div>
-      <div class="item"><div class="when">Oct 2024</div><div><h3>3rd Best Campus Ambassador</h3><div class="where">FOREWARN Bangladesh Disaster Hackathon 2.0, Start Network</div></div></div>
-      <div class="item"><div class="when">Mar 2024</div><div><h3>Winner, &ldquo;Theme Campus&rdquo; Photography</h3><div class="where">Pixel Poetry, PUST Photographic Society</div></div></div>
-      <div class="item"><div class="when">Sep 2023</div><div><h3>First Runner-Up (Team Lead)</h3><div class="where">FOREWARN Bangladesh Disaster Hackathon 1.0, Start Network &amp; HOT</div></div></div>
-    </div>
-    <div>
-      <div class="item"><div class="when">Oct 2026</div><div><h3>Data Analysis Software (NVivo)</h3><div class="where">Dept. of Business Administration, PUST (HEAT Sub-Project)</div></div></div>
-      <div class="item"><div class="when">Jul 2026</div><div><h3>Using Generative AI in Manuscript Preparation</h3><div class="where">Elsevier Researcher Academy (certified)</div></div></div>
-      <div class="item"><div class="when">Nov 2025</div><div><h3>Environmental Management Systems</h3><div class="where">Dept. of Geography and Environment, PUST &amp; AJA Bangladesh</div></div></div>
-      <div class="item"><div class="when">Nov 2025</div><div><h3>Wikimedia Workshop 2025</h3><div class="where">Wikimedia Bangladesh &amp; Ashru Archive, Kushtia</div></div></div>
-      <div class="item"><div class="when">Sep 2023</div><div><h3>Residential prototype-development workshop</h3><div class="where">Disaster Hackathon 1.0, Start Network &amp; HOT</div></div></div>
-    </div>
-  </div>
-</section>
+<!-- ── JAVASCRIPT ──────────────────────────────────────────── -->
+<script>
+function showPage(name) {
+  // Hide all pages
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  // Show target
+  const target = document.getElementById('page-' + name);
+  if (target) {
+    target.classList.add('active');
+    // Re-trigger animations by cloning .fu elements
+    target.querySelectorAll('.fu').forEach(el => {
+      el.style.animation = 'none';
+      el.offsetHeight; // reflow
+      el.style.animation = '';
+    });
+  }
+  // Update nav buttons
+  document.querySelectorAll('.nav-links button').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.page === name);
+  });
+  // Close mobile menu
+  document.getElementById('navLinks').classList.remove('open');
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  // Update URL hash without reload
+  history.replaceState(null, '', '#' + name);
+}
 
-<section id="activities">
-  <h2>Leadership, Writing &amp; Skills</h2>
-  <div class="grid2">
-    <div class="card">
-      <h3>Leadership</h3>
-      <p>Associate Editor (Fiction), <i>Kothar Kagoj</i> (2026&ndash;) &middot; Vice-President, Green Voice, PUST (2024&ndash;26) &middot; President, Konthoswor Abbritti Dol, PUST (2024&ndash;25) &middot; Vice-President, PUST Photographic Society (2024&ndash;25) &middot; Additional General Secretary, Chitro &ndash; Fine Art Society of PUST (2024&ndash;25)</p>
-    </div>
-    <div class="card">
-      <h3>Creative writing</h3>
-      <p>Five poems in <i>Kothar Kagoj</i>, Barsha 1433 issue (2026) &middot; 12 poems on <a href="https://fictionfactory.org/contributor/13529" target="_blank" rel="noopener">FictionFactory</a>, one Editor Featured (2026) &middot; Three poems in the anthology <i>Shat Rong</i> (Nobo Shahitto Prokashoni, 2021)</p>
-    </div>
-  </div>
-  <dl class="skills" style="margin-top:22px">
-    <dt>Research methods</dt><dd>Field survey design, primary data collection, KIIs, FGDs, PRA, data cleaning and analysis, literature review, academic writing</dd>
-    <dt>GIS</dt><dd>ArcGIS, DSAS shoreline analysis, spatial analysis, thematic mapping</dd>
-    <dt>Software</dt><dd>Microsoft Office, Adobe Lightroom, Adobe Photoshop, Canva</dd>
-    <dt>Languages</dt><dd>Bengali (native); English (professional working proficiency)</dd>
-  </dl>
-</section>
+function toggleMenu() {
+  const links = document.getElementById('navLinks');
+  const hb = document.getElementById('hamburger');
+  links.classList.toggle('open');
+  const open = links.classList.contains('open');
+  const spans = hb.querySelectorAll('span');
+  if (open) {
+    spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+  } else {
+    spans[0].style.transform = '';
+    spans[1].style.opacity = '';
+    spans[2].style.transform = '';
+  }
+}
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>I am open to research collaborations, fieldwork projects and postgraduate opportunities in disaster risk and environmental geography.</p>
-  <p><b>Email:</b> <a href="mailto:asifulhaquetomal@gmail.com">asifulhaquetomal@gmail.com</a><br>
-  <b>Based in:</b> Pabna, Bangladesh</p>
-</section>
+// Navbar scroll shadow
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
+});
 
-</main>
-
-<footer>
-  <div class="wrap">&copy; 2026 Md. Asiful Haque Tomal</div>
-</footer>
-
+// Load page from URL hash on start
+const hash = location.hash.replace('#','');
+const valid = ['home','about','research','projects','publications','conferences','awards','contact'];
+if (hash && valid.includes(hash)) showPage(hash);
+</script>
 </body>
 </html>
